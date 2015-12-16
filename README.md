@@ -3,7 +3,7 @@ Version 0.0.1
 
 you can easily use PAImagePlayerView to cycle display pictures.
 
-![Animation](/Users/xiaofeiliu/Desktop/PAImagePlayerView/PAImagePlayerViewDemo.gif)
+![Animation](PAImagePlayerViewDemo.gif)
 
 ##  Installation:
 

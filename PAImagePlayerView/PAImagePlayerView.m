@@ -17,7 +17,6 @@ static NSString * const reuseIndentifier = @"cellIndentifier";
 
 // auto prefrom animation scroll
 @property (nonatomic, assign) BOOL isAutoAnimationScroll;
-@property (nonatomic, assign) paScrollAnimationType animationType;
 @property (nonatomic, strong) NSTimer *animationTimer;
 @property (nonatomic, assign) NSTimeInterval animationInterval;
 
@@ -225,11 +224,5 @@ static NSString * const reuseIndentifier = @"cellIndentifier";
         _animationInterval = animationInterval;
     }
 }
-
-// set scoll animation type
-//- (void)pa_setAutoPerformScrollAnimationType:(paScrollAnimationType)animationType;
-//{
-//    _animationType = animationType;
-//}
 
 @end

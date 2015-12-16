@@ -13,10 +13,6 @@
 #define PAGECONTROL_HEIGHT      20
 #define ANIMATION_INTERVAL      2
 
-typedef NS_ENUM(NSInteger, paScrollAnimationType) {
-    paScrollAnimationDefault,
-};
-
 //_______________________________________________________________________________________________
 
 @protocol PAImagePlayerViewDataSource <NSObject>
@@ -51,8 +47,5 @@ typedef NS_ENUM(NSInteger, paScrollAnimationType) {
 - (void)pa_setAutoPerformAnimationScroll:(BOOL)isAutoAnimationScroll;
 // set auto scroll interval , default is 2 seconds
 - (void)pa_setAutoPerformAnimationScrollInterval:(NSTimeInterval)animationInterval;
-
-// set scoll animation type
-//- (void)pa_setAutoPerformScrollAnimationType:(paScrollAnimationType)animationType;
 
 @end
