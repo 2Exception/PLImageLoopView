@@ -36,6 +36,7 @@ static NSString * const reuseIndentifier = @"cellIndentifier";
     [layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     self = [super initWithFrame:frame collectionViewLayout:layout];
     if (self) {
+        [self setup];
     }
     return self;
 }
@@ -47,11 +48,12 @@ static NSString * const reuseIndentifier = @"cellIndentifier";
     [layout setScrollDirection:scrollDirection];
     self = [super initWithFrame:frame collectionViewLayout:layout];
     if (self) {
+        [self setup];
     }
     return self;
 }
 
-- (void)drawRect:(CGRect)rect
+- (void)setup
 {
     self.delegate = self;
     self.dataSource = self;
@@ -66,8 +68,6 @@ static NSString * const reuseIndentifier = @"cellIndentifier";
     
     self.contentOffset = CGPointMake(_pageControl.currentPage * self.frame.size.width, self.contentOffset.y);
     [self registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIndentifier];
-    
-    NSLog(@"%s",__FUNCTION__);
 }
 
 #pragma mark -- private method
@@ -83,7 +83,7 @@ static NSString * const reuseIndentifier = @"cellIndentifier";
 - (void)initPageControl
 {
     _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.frame.size.height - PAGECONTROL_FROM_BOTTOM, self.frame.size.width, PAGECONTROL_HEIGHT)];
-    _pageControl.pageIndicatorTintColor = [UIColor grayColor];
+    _pageControl.pageIndicatorTintColor = [UIColor colorWithWhite:1 alpha:0.3];
     _pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
     if (_numberOfPages > 1) {
         _pageControl.numberOfPages = _numberOfPages;
@@ -196,8 +196,7 @@ static NSString * const reuseIndentifier = @"cellIndentifier";
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    NSLog(@"%s %f",__FUNCTION__,scrollView.contentOffset.x);
-    int currentPage = scrollView.contentOffset.x / self.frame.size.width;
+    NSInteger currentPage = scrollView.contentOffset.x / self.frame.size.width;
     _pageControl.currentPage = currentPage;
 }
 
